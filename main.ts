@@ -1,0 +1,23 @@
+/**
+ * serial.redirect( SerialPin.P15, SerialPin.P14, BaudRate.BaudRate9600 )
+ */
+weatherbit.startRainMonitoring()
+weatherbit.startWindMonitoring()
+weatherbit.startWeatherMonitoring()
+serial.redirectToUSB()
+basic.forever(function () {
+    serial.writeValue("temperature", weatherbit.temperature() / 100)
+    basic.pause(1000)
+    serial.writeValue("humidity", weatherbit.humidity() / 1024)
+    basic.pause(1000)
+    serial.writeValue("pressure", weatherbit.pressure() / 25600)
+    basic.pause(1000)
+    serial.writeValue("altitude", weatherbit.altitude())
+    basic.pause(1000)
+    serial.writeValue("windspeed", weatherbit.windSpeed() / 2.2369362920544)
+    basic.pause(1000)
+    serial.writeLine("winddir:" + weatherbit.windDirection())
+    basic.pause(1000)
+    serial.writeValue("rain", weatherbit.rain() / 25.4)
+    basic.pause(10000)
+})

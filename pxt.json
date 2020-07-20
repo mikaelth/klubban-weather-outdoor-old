@@ -1,0 +1,24 @@
+{
+    "name": "klubban-weather",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "weatherbit": "github:sparkfun/pxt-weather-bit#v0.0.15"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "main.blocks"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj",
+    "yotta": {
+        "ignoreConflicts": true
+    }
+}
