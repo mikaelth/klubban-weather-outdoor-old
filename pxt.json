@@ -3,7 +3,7 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*",
+        "devices": "*",
         "weatherbit": "github:sparkfun/pxt-weather-bit#v0.0.15"
     },
     "files": [
@@ -17,8 +17,9 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "yotta": {
-        "ignoreConflicts": true
+        "ignoreConflicts": true,
+        "config": {}
     }
 }
