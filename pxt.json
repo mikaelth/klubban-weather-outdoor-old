@@ -3,14 +3,14 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "devices": "*",
-        "weatherbit": "github:sparkfun/pxt-weather-bit#v0.0.15",
-        "microphone": "*"
+        "microphone": "*",
+        "weatherbit": "pkg:weatherbit.json"
     },
     "files": [
         "main.ts",
         "README.md",
-        "main.blocks"
+        "main.blocks",
+        "weatherbit.json"
     ],
     "testFiles": [
         "test.ts"
