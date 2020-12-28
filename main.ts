@@ -32,15 +32,14 @@ function readWeatherSensor (queryParam: string) {
 let weatherParam = 0
 let mnemonics = ["temp", "humid", "press", "alt", "wspeed", "wdir", "rain"]
 // serial.redirect( SerialPin.P15, SerialPin.P14, BaudRate.BaudRate9600 )
-
 weatherbit.startRainMonitoring()
 weatherbit.startWindMonitoring()
 weatherbit.startWeatherMonitoring()
 serial.redirectToUSB()
-
 basic.forever(function () {
     for (let currentParam of mnemonics) {
         serial.writeValue(currentParam, readWeatherSensor(currentParam))
-        basic.pause(10000)
+ //       basic.pause(10000)
+        basic.pause(500)
     }
 })

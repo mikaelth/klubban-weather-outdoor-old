@@ -4,7 +4,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "weatherbit": "github:sparkfun/pxt-weather-bit#v0.0.15"
+        "weatherbit": "github:sparkfun/pxt-weather-bit#v0.0.15",
+        "microphone": "*"
     },
     "files": [
         "main.ts",
