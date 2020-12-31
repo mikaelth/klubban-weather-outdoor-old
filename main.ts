@@ -1,14 +1,11 @@
-/**
- * let mnemonics = ["wdir"]
- * 
- * weatherbit.startRainMonitoring();
- */
+// let mnemonics = ["wdir"]
+// 
+// weatherbit.startRainMonitoring();
 serial.onDataReceived(serial.delimiters(Delimiters.SemiColon), function () {
-//basic.showString(serial.readUntil(serial.delimiters(Delimiters.SemiColon)))
-//basic.showString("X")
-command = serial.readUntil(serial.delimiters(Delimiters.SemiColon))
+    // basic.showString(serial.readUntil(serial.delimiters(Delimiters.SemiColon)))
+    // basic.showString("X")
+    command = serial.readUntil(serial.delimiters(Delimiters.SemiColon))
 })
-
 function windDirection () {
     weatherbit.startWindMonitoring()
     voltage = pins.analogReadPin(AnalogPin.P1)
@@ -90,23 +87,24 @@ function readWeatherSensor (queryParam: string) {
             return 0;
     }
 }
-let command = ""
 let voltage = 0
+let command = ""
 let item = ""
+let slask = 0
 // serial.redirect( SerialPin.P15, SerialPin.P14, BaudRate.BaudRate9600 )
 serial.redirectToUSB()
 weatherbit.rainReset(500);
 let mnemonics = ["temp", "humid", "press", "wspeed", "wdir", "rain", "alt"]
+// for (let currentParam of mnemonics) {
+// serial.writeValue(currentParam, readWeatherSensor(currentParam))
+// basic.pause(1000)
+// }
 basic.forever(function () {
     // weatherbit.startRainMonitoring()
     // weatherbit.startWindMonitoring()
     weatherbit.startWeatherMonitoring()
-       if (command != "") {
-            serial.writeValue(command, readWeatherSensor(command))
-            command = ""
-        }
-//    for (let currentParam of mnemonics) {
-//        serial.writeValue(currentParam, readWeatherSensor(currentParam))
-//        basic.pause(1000)
-//     }
+    if (command != "") {
+        serial.writeValue(command, readWeatherSensor(command))
+        command = ""
+    }
 })
